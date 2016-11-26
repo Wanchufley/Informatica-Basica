@@ -1,4 +1,4 @@
-minclude <stdio.h>
+#include <stdio.h>
 
 #define MAXIMO_NUMERO_LUGARES 2 
 #define MAXIMO_NUMERO_FECHAS 5 
