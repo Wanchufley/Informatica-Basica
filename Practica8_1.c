@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #define MAXIMO_NUMERO_LUGARES 2 
-#define MAXIMO_NUMERO_FECHAS 5 
+#define MAXIMO_NUMERO_FECHAS 2 
 
 typedef struct { int dia; int mes; int year; } Fechas;
 typedef struct { float temp; int preci; int velViento; } ObservacionMeteorologica; 
@@ -18,7 +18,7 @@ int main () {
 		printf("Introduzca la fecha en formato DD/MM/YY:\n");
 		scanf ("%d/%d/%d", &f[i].dia, &f[i].mes, &f[i].year);		
 		for (int j=0;j<MAXIMO_NUMERO_LUGARES;j++) {
-			printf("Introduzca los datos observados de %s en formato Temperatura Precipitacion y Velocidad del Viento separados por Espacio:\n", nombreLugares[j]);
+			printf("Introduzca los datos observados de %s en formato Temperatura Precipitacion y Velocidad del Viento separados por Espacio:\n", *(nombreLugares+j));
 			scanf("%f %d %d", &ob[j][i].temp, &ob[j][i].preci, &ob[j][i].velViento);
         	}
 	}
