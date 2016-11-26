@@ -8,7 +8,7 @@ typedef struct { float temp; int preci; int velViento; } ObservacionMeteorologic
 
 ObservacionMeteorologica ob[MAXIMO_NUMERO_LUGARES][MAXIMO_NUMERO_FECHAS]; 
 Fechas f[MAXIMO_NUMERO_FECHAS];
-char nombreLugares[2][15] = {"La Laguna","Los Cristianos"};
+char *nombreLugares[2] = {"La Laguna","Los Cristianos"};
 float tdif[MAXIMO_NUMERO_LUGARES];
 float tmin[MAXIMO_NUMERO_LUGARES];
 float tmax[MAXIMO_NUMERO_LUGARES];
