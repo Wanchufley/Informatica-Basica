@@ -1,4 +1,4 @@
-#include <stdio.h>
+minclude <stdio.h>
 
 #define MAXIMO_NUMERO_LUGARES 2 
 #define MAXIMO_NUMERO_FECHAS 5 
@@ -29,17 +29,17 @@ int main () {
 		for (int j=0;j<MAXIMO_NUMERO_FECHAS;j++) {
 			if (ob[i][j].temp > tmax[i]) {
 				tmax[i] = ob[i][j].temp;	
-				fmax = j;	
+				fmax = j; 	// Fecha temperatura maxima	
 			}
 			else if (ob[i][j].temp < tmin[i]) {
 				tmin[i] = ob[i][j].temp;
-				fmin = j;				
+				fmin = j;	// Fecha de la temperatura maxima minima				
 			}
 		}
 		printf("Lugar: %s \t Fecha: %d/%d/%d \t Maxima: %.1f\n", nombreLugares[i],f[fmax].dia,f[fmax].mes,f[fmax].year, tmax[i]);
-		tdif[i] = tmax[i] - tmin[i];
+		tdif[i] = tmax[i] - tmin[i];	// Diferencia de temperatura por lugar
 	}
-	float tmdif = 0; // Lugar Maxima Diferencia de Temperatura 
+	float tmdif = 0; //Mayor Diferencia de Temperatura 
 	int lmdf = 0; // Lugar Maxima Diferencia de Temperatura 
 	for (int i=0; i<MAXIMO_NUMERO_LUGARES;i++) {
 		if (tdif[i] > tmdif) {
