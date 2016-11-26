@@ -36,7 +36,7 @@ int main () {
 				fmin = j;	// Fecha de la temperatura maxima minima				
 			}
 		}
-		printf("Lugar: %s \t Fecha: %d/%d/%d \t Maxima: %.1f\n", nombreLugares[i],f[fmax].dia,f[fmax].mes,f[fmax].year, tmax[i]);
+		printf("Lugar: %s \t Fecha: %d/%d/%d \t Maxima: %.1f\n",*(nombreLugares+i),f[fmax].dia,f[fmax].mes,f[fmax].year, tmax[i]);
 		tdif[i] = tmax[i] - tmin[i];	// Diferencia de temperatura por lugar
 	}
 	float tmdif = 0; //Mayor Diferencia de Temperatura 
@@ -47,5 +47,5 @@ int main () {
 			lmdf = i;
 		}
 	}
-	printf ("Lugar: %s \t Maxima: %.1f \t Minima: %.1f \t Diferencia de Temperatura: %.1f\n",nombreLugares[lmdf],tmax[lmdf],tmin[lmdf],tmdif);
+	printf ("Lugar: %s \t Maxima: %.1f \t Minima: %.1f \t Diferencia de Temperatura: %.1f\n",*(nombreLugares+lmdf),tmax[lmdf],tmin[lmdf],tmdif);
 }	
