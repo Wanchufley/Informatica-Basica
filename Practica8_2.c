@@ -9,7 +9,7 @@ typedef struct { float temp; int preci; int velViento; } ObservacionMeteorologic
 
 ObservacionMeteorologica ob[MAXIMO_NUMERO_LUGARES][MAXIMO_NUMERO_FECHAS]; 
 Fechas f[MAXIMO_NUMERO_FECHAS];
-char nombreLugares[MAXIMO_NUMERO_LUGARES][30];
+char *nombreLugares[MAXIMO_NUMERO_LUGARES];
 float tdif[MAXIMO_NUMERO_LUGARES];
 float tmin[MAXIMO_NUMERO_LUGARES];
 float tmax[MAXIMO_NUMERO_LUGARES];
@@ -38,6 +38,7 @@ void pedirLugaresyFechas () {
 		getchar();
 	} while (numeroFechas == 0 || numeroFechas > MAXIMO_NUMERO_FECHAS);
 }
+
 void  pedirFechayObservaciones() {
 	int i=0;
 	do {
@@ -54,14 +55,16 @@ void  pedirFechayObservaciones() {
 		}
 	} while (i < numeroFechas && seguir == 0); 
 }
+
 void  imprimirTodo() {
 	for (int i=0;i<numeroFechas;i++) {
 		printf("\nDatos obervados en fecha: %d/%d/%d\n",f[i].dia,f[i].mes,f[i].year);
-		for (int j=0;j<numeroLugares;j++) {
-			printf("Lugar: %s \t Temperatura: %.1f \t Precipitacion: %d \t Velocidad del Viento: %d\n", nombreLugares[j],ob[j][i].temp,ob[j][i].preci,ob[j][i].velViento);
+		for (int j=0;j<numeroLugares;j++) { 
+			printf("Lugar: %s \t Temperatura: %.1f \t Precipitacion: %d \t Velocidad del Viento: %d\n", *(nombreLugares+j),ob[j][i].temp,ob[j][i].preci,ob[j][i].velViento);
 		}
 	}	
 }
+
 void datosMes() {
 	do {
 		int mes;
@@ -71,7 +74,7 @@ void datosMes() {
 			for (int i=0;i<numeroLugares;i++) {
 				for (int j=0;j<numeroFechas;j++) {
 					if (f[i].mes == mes) {
-						printf("Lugar: %s \t Fecha: %d/%d/%d \t Temperatura: %.1f \t Precipitacion: %d \t Velocidad del Viento: %d\n", nombreLugares[i],f[j].dia,f[j].mes,f[j].year,ob[i][j].temp,ob[i][j].preci,ob[i][j].velViento);
+						printf("Lugar: %s \t Fecha: %d/%d/%d \t Temperatura: %.1f \t Precipitacion: %d \t Velocidad del Viento: %d\n", *(nombreLugares+i),f[j].dia,f[j].mes,f[j].year,ob[i][j].temp,ob[i][j].preci,ob[i][j].velViento);
 					}
 				}
 			}
@@ -83,6 +86,7 @@ void datosMes() {
 		}
 	} while (seguir == 0); 
 }
+
 void datosRangoMes() {
 	int mesi,mesf,pmax,lu,fe;
 	pmax = -1;
@@ -102,7 +106,7 @@ void datosRangoMes() {
 					}
 				}
 				if (pmax != -1) {
-					printf("Lugar: %s \t Fecha: %d/%d/%d \t Precipitacion Maxima: %d\n",nombreLugares[lu],f[fe].dia,f[fe].mes,f[fe].year,pmax);
+					printf("Lugar: %s \t Fecha: %d/%d/%d \t Precipitacion Maxima: %d\n",*(nombreLugares+lu),f[fe].dia,f[fe].mes,f[fe].year,pmax);
 					seguir = 1;
 				}
 				else {
