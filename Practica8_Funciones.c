@@ -27,9 +27,9 @@ void imprimirMatriz (int x, int y,int M[x][y]) {
 		for (int j = 0;j<y;j++) {
 			printf("%d ", M[i][j]);
 		}
-	printf("\n");
+		printf("\n");
 	}
-printf("\n");
+	printf("\n");
 }
 void sumarMatriz (int x1,int y1, int Ma[x1][y1],int x2, int y2,int Mb[x2][y2]){
 	if (x1 == x2 && y1 == y2) {
