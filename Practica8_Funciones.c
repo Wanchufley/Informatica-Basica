@@ -15,11 +15,11 @@ void opciones (){
 	leerDimensiones(&c,&d);
 	int M2[c][d];	
 	printf("Introduzca los numeros de la Matriz 1\n");
-	introDatos(a,b,M1);
+	//introDatos(a,b,M1);
 	printf("Introduzca los numeros de la Matriz 2\n");
-	introDatos(c,d,M2);
-//	llenarMatriz(a,b,M1); 	
-//	llenarMatriz(c,d,M2); 	
+	//introDatos(c,d,M2);
+	llenarMatriz(a,b,M1); 	
+	llenarMatriz(c,d,M2); 	
 	int w; int z;
 	INICIO:	
 	do {
@@ -109,7 +109,7 @@ void leerDimensiones (int *x, int *y) {
 	scanf("%dx%d", x, y);
 }
 
-void llenarMatriz (int x, int y,int M[x][y]) {
+void llenarMatriz (int x, int y,int M[][y]) {
 	for (int i = 0;i<x;i++){
 		for (int j = 0;j<y;j++) {
 			M[i][j] = rand() % 10;			
@@ -117,7 +117,7 @@ void llenarMatriz (int x, int y,int M[x][y]) {
 	}
 }
 
-void introDatos (int x, int y,int M[x][y]) {
+void introDatos (int x, int y,int M[][y]) {
 	for (int i = 0;i<x;i++){
 		for (int j = 0;j<y;j++) {
 			printf("Introduzca el numero para la posicion %d:%d de la Matriz\n",i+1,j+1);			
@@ -126,7 +126,7 @@ void introDatos (int x, int y,int M[x][y]) {
 	}
 }
 
-void imprimirMatriz (int x, int y,int M[x][y]) {
+void imprimirMatriz (int x, int y,int M[][y]) {
 	for (int i = 0;i<x;i++){
 		for (int j = 0;j<y;j++) {
 			printf("%d ", M[i][j]);
@@ -136,7 +136,7 @@ void imprimirMatriz (int x, int y,int M[x][y]) {
 	printf("\n");
 }
 
-void sumarMatriz (int x1,int y1, int Ma[x1][y1],int x2, int y2,int Mb[x2][y2]){
+void sumarMatriz (int x1,int y1, int Ma[][y1],int x2, int y2,int Mb[][y2]){
 	if (x1 == x2 && y1 == y2) {
 		int RES[x1][y1];
         	for (int i=0; i<x1; i++) {
@@ -156,7 +156,7 @@ void sumarMatriz (int x1,int y1, int Ma[x1][y1],int x2, int y2,int Mb[x2][y2]){
 	printf("\n");
 }	
 
-void minimaDiagonal (int x, int y, int M[x][y]){
+void minimaDiagonal (int x, int y, int M[][y]){
 	int min = M[0][y-1];
 	if (x == y) {
 		for (int i=0;i<x;i++) {
@@ -172,7 +172,7 @@ void minimaDiagonal (int x, int y, int M[x][y]){
 	}
 }
 
-void multiplicarMatriz (int x1,int y1, int Ma[x1][y1],int x2, int y2,int Mb[x2][y2]){
+void multiplicarMatriz (int x1,int y1, int Ma[][y1],int x2, int y2,int Mb[][y2]){
 	int RES[x1][y2];
 	if (y1 == x2) {
 		for (int i=0; i<x1; i++) {
