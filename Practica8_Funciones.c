@@ -1,91 +1,13 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include "prototipos.h"
 
+int main () {
+	srand(time(NULL));
+	opciones();
+}
 
-void leerDimensiones (int *x, int *y) {
-	printf("Introduzca el tamaño de la Matriz ej: 2x2\n");
-	scanf("%dx%d", x, y);
-}
-void llenarMatriz (int x, int y,int M[x][y]) {
-	for (int i = 0;i<x;i++){
-		for (int j = 0;j<y;j++) {
-			M[i][j] = rand() % 10;			
-		}
-	}
-}
-void introDatos (int x, int y,int M[x][y]) {
-	for (int i = 0;i<x;i++){
-		for (int j = 0;j<y;j++) {
-			printf("Introduzca el numero para la posicion %d:%d de la Matriz\n",i+1,j+1);			
-			scanf ("%d", &M[i][j]);
-		}
-	}
-}
-void imprimirMatriz (int x, int y,int M[x][y]) {
-	for (int i = 0;i<x;i++){
-		for (int j = 0;j<y;j++) {
-			printf("%d ", M[i][j]);
-		}
-		printf("\n");
-	}
-	printf("\n");
-}
-void sumarMatriz (int x1,int y1, int Ma[x1][y1],int x2, int y2,int Mb[x2][y2]){
-	if (x1 == x2 && y1 == y2) {
-		int RES[x1][y1];
-        	for (int i=0; i<x1; i++) {
-                	for (int j=0;j<y1; j++) {
-                        	RES[i][j] = Ma[i][j] + Mb[i][j];
-	                        printf("%d+%d ", Ma[i][j], Mb[i][j]);
-    
-                	}
-			printf("\n");
-		}
-		printf("\n");
-	imprimirMatriz (x1,y1,RES);
-	}
-	else {
-		printf("Las matrices tienen que ser de la misma dimension para realizar la suma\n");
-	}
-	printf("\n");
-}	
-void minimaDiagonal (int x, int y, int M[x][y]){
-	int min = M[0][y-1];
-	if (x == y) {
-		for (int i=0;i<x;i++) {
-			if (M[i][y-i-1] < min) {
-				min = M[i][y-i-1];
-			}
-		}
-		printf("El valor minimo de la diagonal secunadaria es: %d\n", min);
-		printf("\n");
-	}
-	else {
-	printf("Matriz no es cuadrada\n");
-	}
-}
-void multiplicarMatriz (int x1,int y1, int Ma[x1][y1],int x2, int y2,int Mb[x2][y2]){
-	int RES[x1][y2];
-	if (y1 == x2) {
-		for (int i=0; i<x1; i++) {
-               		for (int j=0;j<y2; j++) {
-                       		RES[i][j] = 0; 
-			}
-	        }
-		for (int i=0;i<x1;i++) {
-			for (int j=0;j<y2;j++) {
-				for (int k=0;k<y1;k++) {
-					RES[i][j] += Ma[i][k] * Mb[k][j];
-				}
-			}
-		}
-	imprimirMatriz(x1,y2,RES);
-	}
-	else {
-		printf("No se pueden multiplicar\n");
-	}
-}
 void opciones (){
 	int a,b,c,d;
 	leerDimensiones(&a,&b);
@@ -181,7 +103,95 @@ void opciones (){
 		}
 	}while (z != 5);
 }
-int main () {
-	srand(time(NULL));
-	opciones();
+
+void leerDimensiones (int *x, int *y) {
+	printf("Introduzca el tamaño de la Matriz ej: 2x2\n");
+	scanf("%dx%d", x, y);
 }
+
+void llenarMatriz (int x, int y,int M[x][y]) {
+	for (int i = 0;i<x;i++){
+		for (int j = 0;j<y;j++) {
+			M[i][j] = rand() % 10;			
+		}
+	}
+}
+
+void introDatos (int x, int y,int M[x][y]) {
+	for (int i = 0;i<x;i++){
+		for (int j = 0;j<y;j++) {
+			printf("Introduzca el numero para la posicion %d:%d de la Matriz\n",i+1,j+1);			
+			scanf ("%d", &M[i][j]);
+		}
+	}
+}
+
+void imprimirMatriz (int x, int y,int M[x][y]) {
+	for (int i = 0;i<x;i++){
+		for (int j = 0;j<y;j++) {
+			printf("%d ", M[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+}
+
+void sumarMatriz (int x1,int y1, int Ma[x1][y1],int x2, int y2,int Mb[x2][y2]){
+	if (x1 == x2 && y1 == y2) {
+		int RES[x1][y1];
+        	for (int i=0; i<x1; i++) {
+                	for (int j=0;j<y1; j++) {
+                        	RES[i][j] = Ma[i][j] + Mb[i][j];
+	                        printf("%d+%d ", Ma[i][j], Mb[i][j]);
+    
+                	}
+			printf("\n");
+		}
+		printf("\n");
+	imprimirMatriz (x1,y1,RES);
+	}
+	else {
+		printf("Las matrices tienen que ser de la misma dimension para realizar la suma\n");
+	}
+	printf("\n");
+}	
+
+void minimaDiagonal (int x, int y, int M[x][y]){
+	int min = M[0][y-1];
+	if (x == y) {
+		for (int i=0;i<x;i++) {
+			if (M[i][y-i-1] < min) {
+				min = M[i][y-i-1];
+			}
+		}
+		printf("El valor minimo de la diagonal secunadaria es: %d\n", min);
+		printf("\n");
+	}
+	else {
+	printf("Matriz no es cuadrada\n");
+	}
+}
+
+void multiplicarMatriz (int x1,int y1, int Ma[x1][y1],int x2, int y2,int Mb[x2][y2]){
+	int RES[x1][y2];
+	if (y1 == x2) {
+		for (int i=0; i<x1; i++) {
+               		for (int j=0;j<y2; j++) {
+                       		RES[i][j] = 0; 
+			}
+	        }
+		for (int i=0;i<x1;i++) {
+			for (int j=0;j<y2;j++) {
+				for (int k=0;k<y1;k++) {
+					RES[i][j] += Ma[i][k] * Mb[k][j];
+				}
+			}
+		}
+	imprimirMatriz(x1,y2,RES);
+	}
+	else {
+		printf("No se pueden multiplicar\n");
+	}
+}
+
+
