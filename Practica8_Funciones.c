@@ -14,9 +14,9 @@ void opciones (){
  	int M1[a][b];
 	leerDimensiones(&c,&d);
 	int M2[c][d];	
-	printf("Introduzca los numeros de la Matriz 1\n");
+	//printf("Introduzca los numeros de la Matriz 1\n");
 	//introDatos(a,b,M1);
-	printf("Introduzca los numeros de la Matriz 2\n");
+	//printf("Introduzca los numeros de la Matriz 2\n");
 	//introDatos(c,d,M2);
 	llenarMatriz(a,b,M1); 	
 	llenarMatriz(c,d,M2); 	
@@ -139,6 +139,7 @@ void imprimirMatriz (int x, int y,int M[][y]) {
 void sumarMatriz (int x1,int y1, int Ma[][y1],int x2, int y2,int Mb[][y2]){
 	if (x1 == x2 && y1 == y2) {
 		int RES[x1][y1];
+		printf("\n");
         	for (int i=0; i<x1; i++) {
                 	for (int j=0;j<y1; j++) {
                         	RES[i][j] = Ma[i][j] + Mb[i][j];
@@ -174,6 +175,7 @@ void minimaDiagonal (int x, int y, int M[][y]){
 
 void multiplicarMatriz (int x1,int y1, int Ma[][y1],int x2, int y2,int Mb[][y2]){
 	int RES[x1][y2];
+	printf("\n");
 	if (y1 == x2) {
 		for (int i=0; i<x1; i++) {
                		for (int j=0;j<y2; j++) {
