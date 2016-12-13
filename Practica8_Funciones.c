@@ -127,6 +127,7 @@ void introDatos (int x, int y,int M[][y]) {
 }
 
 void imprimirMatriz (int x, int y,int M[][y]) {
+	printf("\n");
 	for (int i = 0;i<x;i++){
 		for (int j = 0;j<y;j++) {
 			printf("%d ", M[i][j]);
@@ -159,6 +160,7 @@ void sumarMatriz (int x1,int y1, int Ma[][y1],int x2, int y2,int Mb[][y2]){
 
 void minimaDiagonal (int x, int y, int M[][y]){
 	int min = M[0][y-1];
+	printf("\n");
 	if (x == y) {
 		for (int i=0;i<x;i++) {
 			if (M[i][y-i-1] < min) {
