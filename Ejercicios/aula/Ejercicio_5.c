@@ -1,8 +1,6 @@
 // Leer archivo con numeros guardar pares en arhivo par y impares en arhivo impar
 #include <stdio.h>
 
-
-
 int main () {
 	char nombre[10];
 	FILE *arch;

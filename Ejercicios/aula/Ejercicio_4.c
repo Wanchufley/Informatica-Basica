@@ -4,14 +4,11 @@
 
 
 int main () {
-	char nombre[10];
 	FILE *arch;
         int tmp;
 	int impares = 0;
- 
-	printf ("Introduzca el nombre del fichero\n");
-	scanf ("%s", nombre);
-   	arch = fopen (nombre, "r");
+
+   	arch = fopen ("datos.txt", "r");
 	if (arch == NULL) {
 		printf ("no se pudo abrir\n");
 	} else {
@@ -22,5 +19,6 @@ int main () {
 				printf ("El numero %d es impar\n", tmp);		
 			}	
 		}
+		fclose(arch);
 	 }			
 }
