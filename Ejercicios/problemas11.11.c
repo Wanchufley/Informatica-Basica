@@ -1,40 +1,11 @@
 #include <stdio.h>
 
 int Numeros[20];
-int temp;
+int pos = 0;
 
-void ordenar (int pos, int a[pos]) {
-	for (int i=0;i<pos-1;i++) {
-		for (int j=0;j<pos-1;j++) {
-			if (a[j] > a[j+1]) {
-				printf ("Actual: %d Siguiente: %d\n", a[j], a[j+1]);
-				temp = a[j+1];
-				a[j+1] = a[j];
-				a[j] = temp;
-			}
-		}
-	}
-}
-void imprimir (int pos, int a[pos]) {
-	for (int i=0;i<pos;i++){ 
-		printf ("%d\t", Numeros[i]); 
-	}
-	printf ("\n");
-}
-void duplicados (int pos, int a[pos]) {
-	for (int i=0;i<pos;i++) {
-		for (int j=0;j<pos;j++) {
-			if (a[j] < a[j+1]) {
-				temp = a[j];
-				a[j] = a[j+1];	
-			}				
-		}
-	}
-}
-int main() {
+void leer () {
 	FILE *arch1;
 	FILE *arch2;
-	int pos = 0;
 	int buff1,buff2;
 		
 	for (int i=0;i<20;i++){ Numeros[i] = 0;	}
@@ -53,13 +24,45 @@ int main() {
 			pos++;
 			}			
 		fclose(arch2);
-		for (int i=0;i<pos;i++){ printf ("%d\t", Numeros[i]); }
-		printf ("\n");
 	} else {
 		printf ("No se pudo abrir uno de los archivos\n");	
 	}
+}
+void ordenar (int pos, int a[pos]) {
+	int temp;
+	for (int i=0;i<pos-1;i++) {
+		for (int j=0;j<pos-1;j++) {
+			if (a[j] > a[j+1]) {
+				temp = a[j+1];
+				a[j+1] = a[j];
+				a[j] = temp;
+			}
+		}
+	}
+}
+void imprimir (int pos, int a[pos]) {
+	for (int i=0;i<pos;i++){ 
+		printf ("%d\t", Numeros[i]); 
+	}
+	printf ("\n");
+}
+void guardar (int pos, int a[pos]) {
+	FILE *fin;
+	
+	fin = fopen ("final.txt", "w+");
+	if (fin !=NULL) {
+		for (int i=0; i<pos;i++) {
+			if (a[i] != a[i-1]) {
+				fprintf (fin, "%d ", a[i]);
+			}
+		}
+	}
+	fclose(fin);
+}
+int main() {
+	leer();
 	ordenar (pos,Numeros);
-	duplicados (pos,Numeros);
-	imprimir (pos,Numeros);
+	imprimir(pos,Numeros);
+	guardar (pos,Numeros);
 }
 
