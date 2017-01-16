@@ -1,4 +1,9 @@
 #include <stdio.h>
+<<<<<<< HEAD
+=======
+#include <time.h>
+#include <stdlib.h>
+>>>>>>> b8a495626e6b051cc31196f2c0f4d7e921fb78d1
 
 int main () {
 	FILE *origen;		
