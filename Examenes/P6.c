@@ -17,10 +17,10 @@ int main () {
 					fprintf (impares, "%d\n", buff);
 				}
 			} else {
-				printf ("%s", "No se puedo abrir uno de los archivos de destino\n");
+				printf ("No se pudo abrir uno de los archivos de destino\n");
 			}
 		}
 	} else {
-		printf ("%s", "No se puedo encuentra el archivo datos.txt o no tiene permisos para leerlo\n");
+		printf ("No se pudo encuentra el archivo datos.txt o no tiene permisos para leerlo\n");
 	} fclose(origen); fclose(pares); fclose(impares);
 }

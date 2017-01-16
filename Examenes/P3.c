@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef struct {
+typedef struct { // No puse struct puse datos
 	int mayor;
 	int menor;
 	int suma;
@@ -22,7 +22,7 @@ datos_t valores (int N, int O[N]) {
 	}
 	return dat;
 }
-
+// Esto no habia que hacerlo en el examen
 int main () {
 	datos_t res;
 	int N = 8;

@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int contar (char a[], char b[]) {
+	//int i,j,len,rep = 0; Lo puse de esta forma y da error durante la ejecucion 
 	int i = 0;
 	int j = 0;
 	int len = 0;
@@ -22,7 +23,7 @@ int contar (char a[], char b[]) {
 	}
 	return rep;
 }
-
+// Esto no habia que ponerlo en el examen
 int main () {
 	char a[7] = {"Dixan"};
 	char b[40] = {"Dixan Rivas Dixan Drg Dixan Gonzalez"};
