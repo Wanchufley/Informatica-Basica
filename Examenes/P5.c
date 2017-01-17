@@ -6,19 +6,14 @@ int contar (char a[], char b[]) {
 	int j = 0;
 	int len = 0;
 	int rep = 0;
-	while (a[i] != '\0') {
-		i++; len++;
-	}		
-	i = 0;
+	while (a[len] != '\0') { len++; } //No lo hice asi, lo hice como la version anterior
 	while (b[j] != '\0') {
+		// Esto no lo hice asi, lo hice como la version anterior
 		if (a[i] == b[j]) {
+			i == len-1 ? rep++ : (0) ; 
 			i++; j++;
 		} else {
-			j++;
-		}
-		if (i == len) {
-			i = 0;
-			rep++;
+			j++; i=0;
 		}
 	}
 	return rep;
@@ -26,7 +21,7 @@ int contar (char a[], char b[]) {
 // Esto no habia que ponerlo en el examen
 int main () {
 	char a[7] = {"Dixan"};
-	char b[40] = {"Dixan Rivas Dixan Drg Dixan Gonzalez"};
+	char b[100] = {"Dixan Daniel Dixan Yoan Divan Dicsan Lisander Hector Dixan"};
 	int repetido = contar (a,b);
 	printf ("El nombre se encuentra %d en la segunda cadena\n", repetido);
 }

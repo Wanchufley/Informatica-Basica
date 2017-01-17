@@ -21,6 +21,6 @@ int main () {
 			}
 		}
 	} else {
-		printf ("No se pudo encuentra el archivo datos.txt o no tiene permisos para leerlo\n");
+		printf ("No se encuentra el archivo datos.txt o no tiene permisos para leerlo\n");
 	} fclose(origen); fclose(pares); fclose(impares);
 }
