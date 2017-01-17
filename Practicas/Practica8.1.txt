@@ -1,0 +1,11 @@
+Enunciado práctica 8
+Ejercicio 1 
+
+Entregar la práctica 7 utilizando bucles.
+
+
+
+Ejercicio2
+
+Realizar un programa que solicite una matriz A y una matriz B por teclado y almacene sus valores, teniendo en cuenta que las matrices han de ser de 4×4. El programa ha de  presentar el resultado de la suma, resta y traspuestas de las matrices.
+
