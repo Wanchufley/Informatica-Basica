@@ -1,1 +1,1 @@
-# Practicas Informática Básica
+# Informática Básica  
