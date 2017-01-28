@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef struct { // No puse struct puse datos
+typedef struct { 
 	int mayor;
 	int menor;
 	int suma;
@@ -13,16 +13,13 @@ datos_t valores (int N, int O[N]) {
 	dat.suma = 0;
 	for (int i=0;i<N;i++) {
 		dat.suma += O[i];
-		if (dat.mayor < O[i]) {
+		if (dat.mayor < O[i]) 
 			dat.mayor = O[i];
-		}
-		else if (dat.menor > O[i]) {
+		else if (dat.menor > O[i])
 			dat.menor = O[i];
-		}
 	}
 	return dat;
 }
-// Esto no habia que hacerlo en el examen
 int main () {
 	datos_t res;
 	int N = 8;
